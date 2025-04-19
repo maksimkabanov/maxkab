@@ -33,19 +33,19 @@ jobs:
           ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
 
       - name: Cleanup old build_new directory
-        run: ssh -i ~/.ssh/id_ed25519 ubuntu@${{ secrets.SERVER_IP }} "rm -rf /var/www/hangman/build_new"
+        run: ssh -i ~/.ssh/id_ed25519 ubuntu@${{ secrets.SERVER_IP }} "rm -rf /var/www/maxkab/build_new"
 
       - name: Prepare new build directory
-        run: ssh -i ~/.ssh/id_ed25519 ubuntu@${{ secrets.SERVER_IP }} "mkdir -p /var/www/hangman/build_new"
+        run: ssh -i ~/.ssh/id_ed25519 ubuntu@${{ secrets.SERVER_IP }} "mkdir -p /var/www/maxkab/build_new"
 
       - name: Deploy new build via SCP
-        run: scp -r -i ~/.ssh/id_ed25519 out/* ubuntu@${{ secrets.SERVER_IP }}:/var/www/hangman/build_new/
+        run: scp -r -i ~/.ssh/id_ed25519 out/* ubuntu@${{ secrets.SERVER_IP }}:/var/www/maxkab/build_new/
 
       - name: Atomically swap build folders
-        run: ssh -i ~/.ssh/id_ed25519 ubuntu@${{ secrets.SERVER_IP }} "cd /var/www/hangman && sudo rm -rf build && sudo mv build_new build"
+        run: ssh -i ~/.ssh/id_ed25519 ubuntu@${{ secrets.SERVER_IP }} "cd /var/www/maxkab && sudo rm -rf build && sudo mv build_new build"
 
       - name: Set correct permissions
-        run: ssh -i ~/.ssh/id_ed25519 ubuntu@${{ secrets.SERVER_IP }} "sudo chown -R www-data:www-data /var/www/hangman/build && sudo chmod -R 755 /var/www/hangman/build"
+        run: ssh -i ~/.ssh/id_ed25519 ubuntu@${{ secrets.SERVER_IP }} "sudo chown -R www-data:www-data /var/www/maxkab/build && sudo chmod -R 755 /var/www/maxkab/build"
 
       - name: Cleanup old build_new directory
-        run: ssh -i ~/.ssh/id_ed25519 ubuntu@${{ secrets.SERVER_IP }} "rm -rf /var/www/hangman/build_new"
+        run: ssh -i ~/.ssh/id_ed25519 ubuntu@${{ secrets.SERVER_IP }} "rm -rf /var/www/maxkab/build_new"
