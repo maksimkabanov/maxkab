@@ -29,13 +29,6 @@ export const metadata: Metadata = {
       "Senior Frontend Engineer with over 15 years of experience delivering enterprise-grade applications.",
     siteName: "Maksim Kabanov Portfolio",
   },
-  twitter: {
-    card: "summary_large_image",
-    title: "Maksim Kabanov | Senior Frontend Engineer",
-    description:
-      "Senior Frontend Engineer with over 15 years of experience delivering enterprise-grade applications.",
-    creator: "@maksimkabanov",
-  },
   viewport: {
     width: "device-width",
     initialScale: 1,
@@ -61,7 +54,7 @@ export default function RootLayout({
               <div className="flex justify-between items-center">
                 <Link
                   href="/"
-                  className="text-xl font-bold text-gray-800 dark:text-white"
+                  className="text-xl font-bold text-gray-800 dark:text-white hidden md:block"
                 >
                   Maksim Kabanov
                 </Link>
@@ -108,7 +101,7 @@ export default function RootLayout({
                 </p>
                 <div className="space-x-4">
                   <a
-                    href="https://github.com/maksimkabanov"
+                    href="https://github.com/maksim-kabanov"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
@@ -116,7 +109,7 @@ export default function RootLayout({
                     GitHub
                   </a>
                   <a
-                    href="https://linkedin.com/in/maksimkabanov"
+                    href="https://linkedin.com/in/maksim-kabanov"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
