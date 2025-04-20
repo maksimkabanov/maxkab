@@ -1,103 +1,97 @@
-import Image from "next/image";
+import Link from "next/link";
+import ResumeSection from "./components/ResumeSection";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen">
+      {/* Hero Section */}
+      <section className="section bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 p-4">
+        <div className="container">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">
+              Maksim Kabanov
+            </h1>
+            <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-1">
+              Senior Frontend Engineer
+            </p>
+            <p className="text-xs text-gray-600 dark:text-gray-300 mb-1">
+              Angular, React, Node.js
+            </p>
+            <p className="text-xs text-gray-600 dark:text-gray-300 mb-2">
+              Delivering performant UIs and reusable architecture for enterprise
+              projects
+            </p>
+            <p className="text-lg text-gray-600 dark:text-gray-300">
+              Barcelona, Spain
+            </p>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </section>
+
+      {/* Summary Section */}
+      <section className="section mt-8">
+        <div className="container">
+          <div className="max-w-3xl mx-auto">
+            <h2 className="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">
+              About Me
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
+              Senior Frontend Engineer with over 15 years of experience
+              delivering enterprise-grade applications across finance,
+              analytics, and infrastructure. Specialized in building scalable
+              architectures with React, Angular, and TypeScript, and in
+              optimizing complex UI systems for performance, maintainability,
+              and business value.
+            </p>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
+              Led frontend efforts in greenfield and legacy projects, including
+              UI virtualization for 10,000+ row tables (reducing load time from
+              minutes to seconds) and smart automation dashboards that cut
+              manual workflows by over 70%.
+            </p>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
+              While frontend is my core focus, I also bring hands-on Node.js
+              experience for prototyping APIs, some Firebase Functions, and
+              building dev tools. I love my job, clean code, and solving hard
+              problems with pragmatic solutions.
+            </p>
+            <div className="text-center">
+              <Link href="/about" className="btn">
+                Learn More
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section className="section bg-gray-50 dark:bg-gray-800 mt-8 p-4">
+        <div className="container">
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+            Core Skills
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {["React.js", "Angular", "TypeScript", "JavaScript"].map(
+              (skill) => (
+                <div
+                  key={skill}
+                  className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                >
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white text-center">
+                    {skill}
+                  </h3>
+                </div>
+              )
+            )}
+          </div>
+          <div className="text-center mt-8">
+            <Link href="/about#skills">View All Skills</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Resume Section */}
+      <ResumeSection />
     </div>
   );
 }
