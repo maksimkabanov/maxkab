@@ -1,4 +1,4 @@
-name: Deploy to AWS
+name: Deploy Next.js to AWS
 
 on:
   push:
@@ -13,16 +13,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
-      - name: Build project
-        run: npm run build
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build project
+      - name: Build Next.js app
         run: npm run build
 
       - name: Setup SSH Key
@@ -32,14 +32,41 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
 
-      - name: Cleanup old build_new directory
+      - name: Cleanup old build directory
         run: ssh -i ~/.ssh/id_ed25519 ubuntu@${{ secrets.SERVER_IP }} "rm -rf /var/www/maxkab/build_new"
 
       - name: Prepare new build directory
         run: ssh -i ~/.ssh/id_ed25519 ubuntu@${{ secrets.SERVER_IP }} "mkdir -p /var/www/maxkab/build_new"
 
-      - name: Deploy new build via SCP
-        run: scp -r -i ~/.ssh/id_ed25519 out/* ubuntu@${{ secrets.SERVER_IP }}:/var/www/maxkab/build_new/
+      - name: Create start script
+        run: |
+          echo '#!/bin/bash
+          cd /var/www/maxkab/build
+          export PORT=3000
+          export NODE_ENV=production
+          node server.js' > start.sh
+          chmod +x start.sh
+
+      - name: Archive build
+        run: |
+          tar -czf build.tar.gz \
+            .next/standalone \
+            public \
+            package.json \
+            start.sh
+
+      - name: Upload archive
+        run: |
+          scp -i ~/.ssh/id_ed25519 build.tar.gz ubuntu@${{ secrets.SERVER_IP }}:/var/www/maxkab/
+
+      - name: Extract archive on server
+        run: |
+          ssh -i ~/.ssh/id_ed25519 ubuntu@${{ secrets.SERVER_IP }} '
+            rm -rf /var/www/maxkab/build_new &&
+            mkdir -p /var/www/maxkab/build_new &&
+            tar -xzf /var/www/maxkab/build.tar.gz -C /var/www/maxkab/build_new &&
+            rm /var/www/maxkab/build.tar.gz
+          '
 
       - name: Atomically swap build folders
         run: ssh -i ~/.ssh/id_ed25519 ubuntu@${{ secrets.SERVER_IP }} "cd /var/www/maxkab && sudo rm -rf build && sudo mv build_new build"
@@ -47,5 +74,13 @@ jobs:
       - name: Set correct permissions
         run: ssh -i ~/.ssh/id_ed25519 ubuntu@${{ secrets.SERVER_IP }} "sudo chown -R www-data:www-data /var/www/maxkab/build && sudo chmod -R 755 /var/www/maxkab/build"
 
-      - name: Cleanup old build_new directory
+      - name: Restart app with PM2
+        run: |
+          ssh -i ~/.ssh/id_ed25519 ubuntu@${{ secrets.SERVER_IP }} '
+            source ~/.nvm/nvm.sh
+            cd /var/www/maxkab/build
+            pm2 start ./start.sh --name maxkab || pm2 restart maxkab
+          '
+
+      - name: Cleanup old build directory
         run: ssh -i ~/.ssh/id_ed25519 ubuntu@${{ secrets.SERVER_IP }} "rm -rf /var/www/maxkab/build_new"

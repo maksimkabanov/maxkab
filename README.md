@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Maksim Kabanov - Portfolio Website
+
+A modern, responsive portfolio website built with Next.js and Tailwind CSS, featuring Server-Side Rendering (SSR) and API routes.
+
+## Overview
+
+This portfolio website showcases my professional experience, skills, and projects as a Senior Frontend Engineer. The site is built using modern web technologies and follows best practices for performance and accessibility.
+
+## Features
+
+- **Server-Side Rendering (SSR)**: Improved performance and SEO with server-rendered pages
+- **API Routes**: Built-in API endpoints for dynamic data fetching
+- **Responsive Design**: Optimized for all device sizes
+- **Dark Mode Support**: Automatic theme switching based on system preferences
+- **Performance Optimized**: Fast loading times and smooth transitions
+- **Accessibility**: WCAG compliant for better user experience
+- **SEO Friendly**: Proper meta tags and structured data
+
+## Tech Stack
+
+- **Framework**: Next.js 15.3.0
+- **Styling**: Tailwind CSS
+- **Language**: TypeScript
+- **Server Features**: Server Components, API Routes
+- **Deployment**: Vercel (recommended)
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Node.js 18.x or later
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/maksimkabanov/portfolio.git
+   cd portfolio
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Run the development server:
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
+
+## Project Structure
+
+```
+src/
+├── app/                  # Next.js App Router
+│   ├── api/              # API routes
+│   │   └── projects/     # Projects API endpoint
+│   ├── components/       # Reusable components
+│   ├── about/            # About page
+│   ├── contact/          # Contact page
+│   ├── projects/         # Projects page
+│   ├── globals.css       # Global styles
+│   ├── layout.tsx        # Root layout
+│   └── page.tsx          # Home page
+├── public/               # Static assets
+│   ├── Maksim_Kabanov.pdf                # Standard resume
+│   └── Maksim_Kabanov - accomplishments.pdf  # Accomplishments resume
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Server-Side Rendering
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This project utilizes Next.js Server Components and API Routes to demonstrate server-side rendering capabilities:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Server Components**: Pages and components that render on the server for improved performance
+- **API Routes**: Built-in API endpoints for dynamic data fetching
+- **Data Fetching**: Server-side data fetching with caching options
 
-## Learn More
+## Customization
 
-To learn more about Next.js, take a look at the following resources:
+- Update personal information in the respective page components
+- Add or remove projects in the projects section
+- Update resume PDFs in the public directory
+- Modify API routes in the `app/api` directory
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The site can be easily deployed to Vercel:
 
-## Deploy on Vercel
+```bash
+npm run build
+# or
+yarn build
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is open source and available under the [MIT License](LICENSE).
+
+## Contact
+
+For any inquiries, please reach out through the contact form on the website or connect with me on [LinkedIn](https://linkedin.com/in/maksimkabanov).

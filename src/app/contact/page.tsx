@@ -1,4 +1,9 @@
-import Link from "next/link";
+import { basics, languages } from "../data/resume";
+
+export const metadata = {
+  title: "Contact | Maksim Kabanov",
+  description: "Get in touch with Maksim Kabanov, Senior Frontend Developer",
+};
 
 export default function Contact() {
   return (
@@ -21,10 +26,10 @@ export default function Contact() {
                     Email
                   </h3>
                   <a
-                    href="mailto:maksimkabanov@gmail.com"
+                    href={`mailto:${basics?.email}`}
                     className="text-blue-600 dark:text-blue-400 hover:underline"
                   >
-                    maksimkabanov@gmail.com
+                    {basics?.email}
                   </a>
                 </div>
                 <div>
@@ -32,10 +37,10 @@ export default function Contact() {
                     Phone
                   </h3>
                   <a
-                    href="tel:+34698990700"
+                    href={`tel:${basics?.phone}`}
                     className="text-blue-600 dark:text-blue-400 hover:underline"
                   >
-                    +34 698 990 700
+                    {basics?.phone}
                   </a>
                 </div>
                 <div>
@@ -43,17 +48,39 @@ export default function Contact() {
                     Location
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300">
-                    Balmes 59, 08007 Barcelona, Spain
+                    {basics?.location?.address}, {basics?.location?.postalCode}{" "}
+                    {basics?.location?.city}, {basics?.location?.region}
                   </p>
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
                     Languages
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
-                    English (Upper-Intermediate), Spanish (Upper-Intermediate),
-                    Russian (Native)
-                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {languages?.map((lang, index) => (
+                      <span
+                        key={index}
+                        className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full"
+                      >
+                        {lang.language} - {lang.fluency}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                    Social Networks
+                  </h3>
+                  <div className="flex space-x-4">
+                    <a
+                      href={basics?.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 dark:text-blue-400 hover:underline"
+                    >
+                      LinkedIn
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -61,28 +88,62 @@ export default function Contact() {
             {/* Contact Form */}
             <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md">
               <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
-                My networks
+                Send a Message
               </h2>
-              <div className="space-y-4">
+              <form className="space-y-4">
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                    LinkedIn
-                  </h3>
-                  <a
-                    href="https://www.linkedin.com/in/maksim-kabanov/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 dark:text-blue-400 hover:underline"
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
                   >
-                    https://www.linkedin.com/in/maksim-kabanov/
-                  </a>
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                    required
+                  />
                 </div>
-              </div>
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                    required
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+                  >
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white"
+                    required
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-md transition duration-300"
+                >
+                  Send Message
+                </button>
+              </form>
             </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <Link href="/">Back to Home</Link>
           </div>
         </div>
       </div>
