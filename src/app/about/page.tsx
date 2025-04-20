@@ -68,7 +68,7 @@ export default function About() {
             <h2 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">
               {basics?.name}
             </h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-6">
+            <p className="text-gray-600 dark:text-gray-300 mb-6 whitespace-pre-line">
               {basics?.summary}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -77,15 +77,21 @@ export default function About() {
                   Contact Information
                 </h3>
                 <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                  <li>
-                    <span className="font-medium">Email:</span> {basics?.email}
-                  </li>
-                  <li>
-                    <span className="font-medium">Phone:</span> {basics?.phone}
-                  </li>
+                  {basics?.email && (
+                    <li>
+                      <span className="font-medium">Email:</span>{" "}
+                      {basics?.email}
+                    </li>
+                  )}
+                  {basics?.phone && (
+                    <li>
+                      <span className="font-medium">Phone:</span>{" "}
+                      {basics?.phone}
+                    </li>
+                  )}
                   <li>
                     <span className="font-medium">Location:</span>{" "}
-                    {basics?.location?.city}, {basics?.location?.countryCode}
+                    {basics?.location?.city}, {basics?.location?.region}
                   </li>
                   <li>
                     <span className="font-medium">LinkedIn:</span>{" "}
@@ -147,7 +153,7 @@ export default function About() {
                     <p className="text-gray-500 dark:text-gray-400 mb-2">
                       {job.startDate} - {job.endDate}
                     </p>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    <p className="text-gray-600 dark:text-gray-300 mb-4 whitespace-pre-line">
                       {job.description}
                     </p>
                     {job.accomplishments && (
@@ -193,7 +199,7 @@ export default function About() {
                               <h5 className="text-md font-medium text-gray-900 dark:text-white mb-2">
                                 {project.name}
                               </h5>
-                              <p className="text-gray-600 dark:text-gray-300 mb-3 text-sm">
+                              <p className="text-gray-600 dark:text-gray-300 mb-3 text-sm whitespace-pre-line">
                                 {project.description}
                               </p>
                               {project.accomplishments && (

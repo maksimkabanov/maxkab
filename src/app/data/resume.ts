@@ -6,7 +6,7 @@ export const resume: ResumeFromServer = {
     label: "Senior Frontend or Fullstack Engineer",
     image: "",
     email: "maksimkabanov@gmail.com",
-    phone: "+34698990700",
+    phone: "",
     url: "https://www.linkedin.com/in/maksim-kabanov/",
     summary: `With over 15 years of professional experience in JavaScript development, I have built and maintained large-scale enterprise systems for both private companies and government-level clients. Throughout my career, I have delivered complex web applications using modern frontend frameworks like React.js, Angular, and Vue.js, while also keeping a strong interest in backend development with Node.js.
 
@@ -16,7 +16,7 @@ I bring a deep understanding of JavaScript and TypeScript, along with solid arch
       postalCode: "08007",
       city: "Barcelona",
       countryCode: "34",
-      region: "Barcelona",
+      region: "Spain",
     },
     profiles: [],
   },

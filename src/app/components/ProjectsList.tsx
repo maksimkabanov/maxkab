@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 import { Project, WithId } from "../api/types";
 import { projects } from "../data/resume";
 
@@ -56,19 +57,18 @@ export default function ProjectsList() {
         >
           {/* Display image only if it exists */}
           {project.imageUrl && (
-            <div className="relative h-48 w-full">
-              <img
-                src={project.imageUrl}
-                alt={project.name}
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <Image
+              src={project.imageUrl}
+              alt={project.name}
+              layout="fill"
+              objectFit="cover"
+            />
           )}
           <div className="p-6">
             <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white">
               {project.name}
             </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
+            <p className="text-gray-600 dark:text-gray-300 mb-4 whitespace-pre-line">
               {project.description}
             </p>
             {/* Display highlights if they exist */}

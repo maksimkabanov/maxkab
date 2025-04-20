@@ -23,7 +23,15 @@ jobs:
         run: npm ci
 
       - name: Build Next.js app
-        run: npm run build
+        run: |
+          NODE_ENV=production npm run build
+
+      - name: Debug build folder
+        run: |
+          ls -la
+          ls -la .next
+          ls -la .next/standalone || echo "NO .next/standalone 😡"
+          ls -la .next/standalone/.next || echo "NO .next/standalone/.next 😡"
 
       - name: Setup SSH Key
         run: |
@@ -42,18 +50,20 @@ jobs:
         run: |
           echo '#!/bin/bash
           cd /var/www/maxkab/build
-          export PORT=3000
           export NODE_ENV=production
+          export PORT=3000
           node server.js' > start.sh
           chmod +x start.sh
 
       - name: Archive build
         run: |
-          tar -czf build.tar.gz \
-            .next/standalone \
-            public \
-            package.json \
-            start.sh
+          mkdir -p archive
+          cp -r .next/standalone/. archive/
+          cp -r .next/static archive/.next/static
+          cp -r public archive/
+          cp package.json archive/
+          cp start.sh archive/
+          tar -czf build.tar.gz -C archive .
 
       - name: Upload archive
         run: |
