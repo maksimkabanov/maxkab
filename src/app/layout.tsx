@@ -67,6 +67,12 @@ export default function RootLayout({
                 </Link>
                 <div className="space-x-6">
                   <Link
+                    href="/experience"
+                    className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+                  >
+                    Experience
+                  </Link>
+                  <Link
                     href="/projects"
                     className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
                   >

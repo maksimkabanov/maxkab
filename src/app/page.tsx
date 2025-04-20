@@ -59,8 +59,20 @@ export default function Home() {
           <div className="max-w-3xl mx-auto">
             {/* Resume Section */}
             <ResumeSection />
-            <div className="mt-12 space-y-6 columns-2">
-              <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md">
+            <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md flex flex-col justify-between">
+                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                  Explore my work places and experiences
+                </p>
+                <Link
+                  href="/experience"
+                  className="inline-block text-gray-900 dark:text-white underline hover:text-gray-700 dark:hover:text-gray-300 transition duration-300"
+                >
+                  My Experience
+                </Link>
+              </div>
+
+              <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md flex flex-col justify-between">
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
                   Explore my portfolio of projects showcasing my technical
                   expertise and problem-solving abilities.
@@ -69,20 +81,7 @@ export default function Home() {
                   href="/projects"
                   className="inline-block text-gray-900 dark:text-white underline hover:text-gray-700 dark:hover:text-gray-300 transition duration-300"
                 >
-                  View All Projects
-                </Link>
-              </div>
-
-              <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md">
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Interested in collaboration or have a project in mind?
-                  Let&apos;s connect and discuss how we can work together.
-                </p>
-                <Link
-                  href="/contact"
-                  className="inline-block text-gray-900 dark:text-white underline hover:text-gray-700 dark:hover:text-gray-300 transition duration-300"
-                >
-                  Contact Me
+                  View Notable Projects
                 </Link>
               </div>
             </div>

@@ -73,13 +73,6 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-
-            {/* Contact Form */}
-            <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md">
-              <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
-                Contact me in social networks or by email
-              </h2>
-            </div>
           </div>
         </div>
       </div>
