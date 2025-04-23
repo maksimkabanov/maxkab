@@ -6,7 +6,9 @@ export const metadata = {
     "Portfolio of projects by Maksim Kabanov, Senior Frontend Developer",
 };
 
-export default function Projects() {
+export const dynamic = "force-dynamic";
+
+export default async function Projects() {
   return (
     <div className="min-h-screen py-16">
       <div className="container">

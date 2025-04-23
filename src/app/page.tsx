@@ -8,7 +8,9 @@ export const metadata = {
     "Portfolio website of Maksim Kabanov, Senior Frontend Engineer with over 15 years of experience",
 };
 
-export default function Home() {
+export const dynamic = "force-dynamic";
+
+export default async function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}

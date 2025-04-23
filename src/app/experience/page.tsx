@@ -6,7 +6,9 @@ export const metadata = {
   description: "Watch experience of Maksim Kabanov, Senior Frontend Developer",
 };
 
-export default function About() {
+export const dynamic = "force-dynamic";
+
+export default async function Experience() {
   return (
     <div className="min-h-screen py-16">
       <div className="container">

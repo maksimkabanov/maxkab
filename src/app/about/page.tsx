@@ -54,7 +54,9 @@ export const metadata = {
     "Learn more about Maksim Kabanov, Senior Frontend Developer with over 15 years of experience",
 };
 
-export default function About() {
+export const dynamic = "force-dynamic";
+
+export default async function About() {
   return (
     <div className="min-h-screen py-16">
       <div className="container">
