@@ -42,6 +42,8 @@ export PORT="${PORT:-3000}"
 exec node server.js
 EOF
 
+cp Dockerfile "$OUT_DIR/"
+
 chmod +x "$OUT_DIR/start.sh"
 
 echo "==> Done. Docker-ready build is in: $OUT_DIR"

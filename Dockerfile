@@ -5,7 +5,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=3000
 
-COPY out/ ./
+COPY ./ ./
 
 RUN chmod +x /app/start.sh
 
