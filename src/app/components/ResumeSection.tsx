@@ -12,7 +12,7 @@ const ResumeSection = () => {
           </p>
           <div className="flex space-x-4">
             <a
-              href="/Maksim_Kabanov.pdf"
+              href="/Maksim_Kabanov_CV.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
@@ -39,7 +39,7 @@ const ResumeSection = () => {
               View
             </a>
             <a
-              href="/Maksim_Kabanov.pdf"
+              href="/Maksim_Kabanov_CV.pdf"
               download
               className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors"
             >
