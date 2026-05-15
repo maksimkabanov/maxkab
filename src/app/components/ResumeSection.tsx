@@ -1,6 +1,9 @@
 import React from "react";
 
 const ResumeSection = () => {
+
+  const resumePath = `/Maksim_Kabanov.pdf?v=${Date.now()}`;
+
   return (
     <div className="py-12">
       <h2 className="text-3xl font-bold text-center mb-8">Resume PDF</h2>
@@ -12,7 +15,7 @@ const ResumeSection = () => {
           </p>
           <div className="flex space-x-4">
             <a
-              href="/Maksim_Kabanov_CV.pdf"
+              href={resumePath}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
@@ -39,7 +42,7 @@ const ResumeSection = () => {
               View
             </a>
             <a
-              href="/Maksim_Kabanov_CV.pdf"
+              href={resumePath}
               download
               className="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 transition-colors"
             >
