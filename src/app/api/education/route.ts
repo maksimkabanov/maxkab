@@ -4,7 +4,7 @@ import { Education, WithId } from "../types";
 
 export async function GET() {
   try {
-    const education: WithId<Education>[] = info.education.map((edu, index) => ({
+    const education: WithId<Education>[] = info.education?.map((edu, index) => ({
       ...edu,
       id: (index + 1).toString(),
     }));

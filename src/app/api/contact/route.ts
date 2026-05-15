@@ -17,7 +17,7 @@ export async function GET() {
       email: basics.email,
       phone: basics.phone,
       location: `${basics.location.city}, ${basics.location.region}, ${basics.location.countryCode}`,
-      languages: languages.map((lang) => `${lang.language} (${lang.fluency})`),
+      languages: languages?.map((lang) => `${lang.language} (${lang.fluency})`) ?? [],
       linkedin: basics.url,
     };
 

@@ -1,6 +1,6 @@
 import { basics, education, skills } from "../data/resume";
 
-// Группируем навыки по категориям
+// Group skills by categories
 const groupedSkills = {
   frontend:
     skills?.filter(

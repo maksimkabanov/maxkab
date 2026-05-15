@@ -152,5 +152,5 @@ Watch my attachments and "Features" also.`,
 
 export default resumeObject(achievements) as ResumeReady;
 
-// Экспортируем отдельные части достижений для удобства
+// Export individual parts of achievements for convenience
 export const { work } = achievements;

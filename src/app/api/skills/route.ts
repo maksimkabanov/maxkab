@@ -4,10 +4,10 @@ import { Skill, WithId } from "../types";
 
 export async function GET() {
   try {
-    const skills: WithId<Skill>[] = info.skills.map((skill, index) => ({
+    const skills: WithId<Skill>[] = info.skills?.map((skill, index) => ({
       ...skill,
       id: (index + 1).toString(),
-    }));
+    })) ?? [];
 
     return NextResponse.json(skills);
   } catch (error) {

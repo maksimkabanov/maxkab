@@ -49,7 +49,7 @@ export default async function Experience() {
                           Technologies
                         </h4>
                         <div className="flex flex-wrap gap-2">
-                          {job.technologies.map((tech, techIndex) => (
+                          {job.technologies?.map((tech, techIndex) => (
                             <span
                               key={techIndex}
                               className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full"
@@ -68,7 +68,7 @@ export default async function Experience() {
                           Projects
                         </h4>
                         <div className="space-y-4">
-                          {job.projects.map((project, projectIndex) => (
+                          {job.projects?.map((project, projectIndex) => (
                             <div
                               key={projectIndex}
                               className="bg-gray-50 dark:bg-gray-700 p-4 rounded-lg"
@@ -92,7 +92,7 @@ export default async function Experience() {
                               {project.technologies &&
                                 project.technologies.length > 0 && (
                                   <div className="flex flex-wrap gap-2">
-                                    {project.technologies.map(
+                                    {project.technologies?.map(
                                       (tech, techIndex) => (
                                         <span
                                           key={techIndex}

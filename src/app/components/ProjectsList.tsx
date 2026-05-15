@@ -78,14 +78,14 @@ export default function ProjectsList() {
                   Highlights:
                 </h4>
                 <ul className="list-disc list-inside text-sm text-gray-600 dark:text-gray-400">
-                  {project.highlights.map((highlight, index) => (
+                  {project.highlights?.map((highlight, index) => (
                     <li key={index}>{highlight}</li>
                   ))}
                 </ul>
               </div>
             )}
             <div className="flex flex-wrap gap-2 mb-4">
-              {project.technologies.map((tech) => (
+              {project.technologies?.map((tech) => (
                 <span
                   key={tech}
                   className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full"

@@ -4,12 +4,12 @@ import { WorkExperience, WithId } from "../types";
 
 export async function GET() {
   try {
-    const workExperience: WithId<WorkExperience>[] = info.work.map(
+    const workExperience: WithId<WorkExperience>[] = info.work?.map(
       (work, index) => ({
         ...work,
         id: (index + 1).toString(),
       })
-    );
+    ) ?? [];
 
     return NextResponse.json(workExperience);
   } catch (error) {

@@ -1,4 +1,5 @@
 export interface Location {
+  id?: string;
   address: string;
   postalCode: string;
   city: string;
@@ -7,12 +8,14 @@ export interface Location {
 }
 
 export interface Profile {
+  id?: string;
   network: string;
   username: string;
   url: string;
 }
 
 export interface WorkProject {
+  id?: string;
   name: string;
   description: string;
   accomplishments: string;
@@ -20,6 +23,7 @@ export interface WorkProject {
 }
 
 export interface WorkExperience {
+  id?: string;
   name: string;
   position: string;
   url: string;
@@ -32,6 +36,7 @@ export interface WorkExperience {
 }
 
 export interface VolunteerExperience {
+  id?: string;
   organization: string;
   position: string;
   url: string;
@@ -42,6 +47,7 @@ export interface VolunteerExperience {
 }
 
 export interface Education {
+  id?: string;
   institution: string;
   url: string;
   area: string;
@@ -53,6 +59,7 @@ export interface Education {
 }
 
 export interface Award {
+  id?: string;
   title: string;
   date: string;
   awarder: string;
@@ -60,6 +67,7 @@ export interface Award {
 }
 
 export interface Certificate {
+  id?: string;
   name: string;
   date: string;
   issuer: string;
@@ -67,6 +75,7 @@ export interface Certificate {
 }
 
 export interface Publication {
+  id?: string;
   name: string;
   publisher: string;
   releaseDate: string;
@@ -75,6 +84,7 @@ export interface Publication {
 }
 
 export interface Skill {
+  id?: string;
   name: string;
   level: SkillLevel;
   keywords?: string[];
@@ -91,21 +101,25 @@ export type SkillInterestLevel = 0 | 1 | 2;
 export const MAX_INTERES_LEVEL = 2;
 
 export interface Language {
+  id?: string;
   language: string;
   fluency: string;
 }
 
 export interface Interest {
+  id?: string;
   name: string;
   keywords: string[];
 }
 
 export interface Reference {
+  id?: string;
   name: string;
   reference: string;
 }
 
 export interface Project {
+  id?: string;
   name: string;
   startDate: string;
   endDate: string;
@@ -116,6 +130,7 @@ export interface Project {
 }
 
 export interface Basics {
+  id?: string;
   name: string;
   label: string;
   image: string;
@@ -127,6 +142,7 @@ export interface Basics {
   profiles: Profile[];
 }
 export interface Resume {
+  id?: string;
   basics: Basics;
   work: WorkExperience[];
   volunteer: VolunteerExperience[];

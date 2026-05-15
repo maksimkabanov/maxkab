@@ -4,15 +4,15 @@ import { Project, WithId } from "../types";
 
 export async function GET() {
   try {
-    // Проверяем, что projects существует и не пустой
+    // Check that projects exist and are not empty
     if (!projects || projects.length === 0) {
       return NextResponse.json([], { status: 200 });
     }
 
-    // Преобразуем проекты в формат WithId<Project>
+    // Transform projects into WithId<Project> format
     const projectsWithIds: WithId<Project>[] = projects.map(
       (project, index) => {
-        // Убедимся, что все обязательные поля присутствуют
+        // Ensure all required fields are present
         const projectWithRequiredFields: Project = {
           name: project.name || `Project ${index + 1}`,
           startDate: project.startDate || "",
