@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import info from "@/info/info";
+import info from "@/app/data/info";
 import { Skill, WithId } from "../types";
 
 export async function GET() {
