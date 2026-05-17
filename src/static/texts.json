@@ -1,0 +1,62 @@
+{
+  "common": {
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
+    "linkedin": "LinkedIn",
+    "technologies": "Technologies",
+    "accomplishments": "Accomplishments",
+    "projects": "Projects"
+  },
+  "home": {
+    "pageTitle": "Maksim Kabanov | Senior Frontend Engineer",
+    "pageDescription": "Portfolio website of Maksim Kabanov, Senior Frontend Engineer with over 15 years of experience",
+    "sectionTitle": "About Me",
+    "experienceCardText": "Explore my work places and experiences",
+    "experienceLink": "My Experience",
+    "projectsCardText": "Explore my portfolio of projects showcasing my technical expertise and problem-solving abilities.",
+    "projectsLink": "View Notable Projects",
+    "viewResumeLink": "View Full Resume"
+  },
+  "about": {
+    "pageTitle": "About Me | Maksim Kabanov",
+    "pageDescription": "Learn more about Maksim Kabanov, Senior Frontend Developer with over 15 years of experience",
+    "mainTitle": "About Me",
+    "contactInformation": "Contact Information",
+    "education": "Education",
+    "noEducationAvailable": "No education information available.",
+    "skills": "Skills",
+    "frontendDevelopment": "Frontend Development",
+    "testing": "Testing",
+    "backendAPI": "Backend & API",
+    "toolsSoftSkills": "Tools & Soft Skills"
+  },
+  "projects": {
+    "pageTitle": "Projects | Maksim Kabanov",
+    "pageDescription": "Portfolio of projects by Maksim Kabanov, Senior Frontend Developer",
+    "mainTitle": "My Projects",
+    "description": "Here are some of the projects I've worked on throughout my career. Each project demonstrates different aspects of my technical skills and problem-solving abilities.",
+    "highlights": "Highlights",
+    "viewProject": "View Project"
+  },
+  "experience": {
+    "pageTitle": "Expericence | Maksim Kabanov",
+    "pageDescription": "Watch experience of Maksim Kabanov, Senior Frontend Developer",
+    "mainTitle": "Work Experience"
+  },
+  "contact": {
+    "pageTitle": "Contact | Maksim Kabanov",
+    "pageDescription": "Get in touch with Maksim Kabanov, Senior Frontend Developer",
+    "mainTitle": "Contact Me",
+    "getInTouch": "Get in Touch",
+    "languages": "Languages",
+    "socialNetworks": "Social Networks"
+  },
+  "resume": {
+    "pdfTitle": "Resume PDF",
+    "resumeTitle": "Resume",
+    "description": "Resume highlighting key achievements and results",
+    "viewButton": "View",
+    "downloadButton": "Download"
+  }
+}

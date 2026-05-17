@@ -1,8 +1,8 @@
-import { basics, languages } from "../data/resume";
+import { basics, languages, texts } from "../data/resume";
 
 export const metadata = {
-  title: "Contact | Maksim Kabanov",
-  description: "Get in touch with Maksim Kabanov, Senior Frontend Developer",
+  title: texts.contact.pageTitle,
+  description: texts.contact.pageDescription,
 };
 
 export const dynamic = "force-dynamic";
@@ -13,19 +13,19 @@ export default async function Contact() {
       <div className="container">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-            Contact Me
+            {texts.contact.mainTitle}
           </h1>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Contact Information */}
             <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md">
               <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">
-                Get in Touch
+                {texts.contact.getInTouch}
               </h2>
               <div className="space-y-4">
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                    Email
+                    {texts.common.email}
                   </h3>
                   <a
                     href={`mailto:${basics?.email}`}
@@ -36,7 +36,7 @@ export default async function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                    Location
+                    {texts.common.location}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300">
                     {basics?.location?.address}, {basics?.location?.postalCode}{" "}
@@ -45,7 +45,7 @@ export default async function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                    Languages
+                    {texts.contact.languages}
                   </h3>
                   <div className="flex flex-wrap gap-2">
                     {languages?.map((lang, index) => (
@@ -60,7 +60,7 @@ export default async function Contact() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                    Social Networks
+                    {texts.contact.socialNetworks}
                   </h3>
                   <div className="flex space-x-4">
                     <a

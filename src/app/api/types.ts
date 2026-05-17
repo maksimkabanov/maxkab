@@ -94,11 +94,32 @@ export interface Skill {
   lastUsed?: string | null;
 }
 
-export type SkillLevel = 0 | 1 | 2 | 3 | 4;
 export const MAX_SKILL_LEVEL = 4;
-
-export type SkillInterestLevel = 0 | 1 | 2;
 export const MAX_INTERES_LEVEL = 2;
+
+export enum SkillLevel {
+  None = '0 - None',
+  Beginner = '1 - Beginner',
+  Proficient = '2 - Proficient',
+  Expert = '3 - Expert',
+  Master = '4 - Master',
+}
+
+export enum SkillInterestLevel {
+  No = '0 - No Interest',
+  Some = '1 - Some Interest',
+  High = '2 - High Interest',
+}
+
+export interface Skill {
+  name: string;
+  level: SkillLevel;
+  keywords?: string[];
+  interestLevel?: SkillInterestLevel;
+  notes?: string | null;
+  numberOfYears?: string | null;
+  lastUsed?: string | null;
+}
 
 export interface Language {
   id?: string;

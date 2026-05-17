@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Project, WithId } from "../api/types";
-import { projects } from "../data/resume";
+import { projects, texts } from "../data/resume";
 
 // Extend Project type to include additional fields
 interface ExtendedProject extends Project {
@@ -75,7 +75,7 @@ export default function ProjectsList() {
             {project.highlights && project.highlights.length > 0 && (
               <div className="mb-4">
                 <h4 className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Highlights:
+                  {texts.projects.highlights}:
                 </h4>
                 <ul className="list-disc list-inside text-sm text-gray-600 dark:text-gray-400">
                   {project.highlights?.map((highlight, index) => (
@@ -102,7 +102,7 @@ export default function ProjectsList() {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
                 >
-                  View Project
+                  {texts.projects.viewProject}
                 </a>
               )}
             </div>

@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { work } from "../data/resume";
+import { work, texts } from "../data/resume";
 
 export const metadata = {
-  title: "Expericence | Maksim Kabanov",
-  description: "Watch experience of Maksim Kabanov, Senior Frontend Developer",
+  title: texts.experience.pageTitle,
+  description: texts.experience.pageDescription,
 };
 
 export const dynamic = "force-dynamic";
@@ -14,7 +14,7 @@ export default async function Experience() {
       <div className="container">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-            Work Experience
+            {texts.experience.mainTitle}
           </h1>
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8 mb-12">
             {work && work.length > 0 ? (
@@ -36,7 +36,7 @@ export default async function Experience() {
                     {job.accomplishments && (
                       <div className="mb-4">
                         <h4 className="text-lg font-medium mb-2 text-gray-900 dark:text-white">
-                          Accomplishments
+                          {texts.common.accomplishments}
                         </h4>
                         <p className="text-gray-600 dark:text-gray-300 whitespace-pre-line">
                           {job.accomplishments}
@@ -46,7 +46,7 @@ export default async function Experience() {
                     {job.technologies && job.technologies.length > 0 && (
                       <div className="mb-4">
                         <h4 className="text-lg font-medium mb-2 text-gray-900 dark:text-white">
-                          Technologies
+                          {texts.common.technologies}
                         </h4>
                         <div className="flex flex-wrap gap-2">
                           {job.technologies?.map((tech, techIndex) => (
@@ -65,7 +65,7 @@ export default async function Experience() {
                     {job.projects && job.projects.length > 0 && (
                       <div className="mt-4">
                         <h4 className="text-lg font-medium mb-3 text-gray-900 dark:text-white">
-                          Projects
+                          {texts.common.projects}
                         </h4>
                         <div className="space-y-4">
                           {job.projects?.map((project, projectIndex) => (
@@ -82,7 +82,7 @@ export default async function Experience() {
                               {project.accomplishments && (
                                 <div className="mb-3">
                                   <h6 className="text-sm font-medium text-gray-800 dark:text-gray-200 mb-1">
-                                    Accomplishments:
+                                    {texts.common.accomplishments}:
                                   </h6>
                                   <p className="text-gray-600 dark:text-gray-300 text-sm whitespace-pre-line">
                                     {project.accomplishments}

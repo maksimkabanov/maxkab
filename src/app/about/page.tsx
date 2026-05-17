@@ -1,4 +1,4 @@
-import { basics, education, skills } from "../data/resume";
+import { basics, education, skills, texts } from "../data/resume";
 
 // Group skills by categories
 const groupedSkills = {
@@ -49,9 +49,8 @@ const groupedSkills = {
 };
 
 export const metadata = {
-  title: "About Me | Maksim Kabanov",
-  description:
-    "Learn more about Maksim Kabanov, Senior Frontend Developer with over 15 years of experience",
+  title: texts.about.pageTitle,
+  description: texts.about.pageDescription,
 };
 
 export const dynamic = "force-dynamic";
@@ -62,7 +61,7 @@ export default async function About() {
       <div className="container">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
-            About Me
+            {texts.about.mainTitle}
           </h1>
 
           {/* Main Information */}
@@ -76,7 +75,7 @@ export default async function About() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <h3 className="text-lg font-medium mb-2 text-gray-900 dark:text-white">
-                  Contact Information
+                  {texts.about.contactInformation}
                 </h3>
                 <ul className="space-y-2 text-gray-600 dark:text-gray-300">
                   {basics?.email && (
@@ -110,7 +109,7 @@ export default async function About() {
               </div>
               <div>
                 <h3 className="text-lg font-medium mb-2 text-gray-900 dark:text-white">
-                  Education
+                  {texts.about.education}
                 </h3>
                 {education && education.length > 0 ? (
                   <ul className="space-y-2 text-gray-600 dark:text-gray-300">
@@ -130,7 +129,7 @@ export default async function About() {
                   </ul>
                 ) : (
                   <p className="text-gray-600 dark:text-gray-300">
-                    No education information available.
+                    {texts.about.noEducationAvailable}
                   </p>
                 )}
               </div>
@@ -140,12 +139,12 @@ export default async function About() {
           {/* Skills */}
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
             <h2 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">
-              Skills
+              {texts.about.skills}
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
                 <h3 className="text-lg font-medium mb-4 text-gray-900 dark:text-white">
-                  Frontend Development
+                  {texts.about.frontendDevelopment}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {groupedSkills.frontend.map((skill, index) => (
@@ -160,7 +159,7 @@ export default async function About() {
               </div>
               <div>
                 <h3 className="text-lg font-medium mb-4 text-gray-900 dark:text-white">
-                  Testing
+                  {texts.about.testing}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {groupedSkills.testing.map((skill, index) => (
@@ -175,7 +174,7 @@ export default async function About() {
               </div>
               <div>
                 <h3 className="text-lg font-medium mb-4 text-gray-900 dark:text-white">
-                  Backend & API
+                  {texts.about.backendAPI}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {groupedSkills.backend.map((skill, index) => (
@@ -190,7 +189,7 @@ export default async function About() {
               </div>
               <div>
                 <h3 className="text-lg font-medium mb-4 text-gray-900 dark:text-white">
-                  Tools & Soft Skills
+                  {texts.about.toolsSoftSkills}
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {groupedSkills.tools.map((skill, index) => (

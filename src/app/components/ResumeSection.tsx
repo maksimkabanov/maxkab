@@ -1,4 +1,5 @@
 import React from "react";
+import { texts } from "../data/resume";
 
 const ResumeSection = () => {
 
@@ -6,12 +7,12 @@ const ResumeSection = () => {
 
   return (
     <div className="py-12">
-      <h2 className="text-3xl font-bold text-center mb-8">Resume PDF</h2>
+      <h2 className="text-3xl font-bold text-center mb-8">{texts.resume.pdfTitle}</h2>
       <div className="grid md:grid-cols-1 gap-8 max-w-4xl mx-auto">
         <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg">
-          <h3 className="text-xl font-semibold mb-4">Resume</h3>
+          <h3 className="text-xl font-semibold mb-4">{texts.resume.resumeTitle}</h3>
           <p className="text-gray-600 dark:text-gray-300 mb-4">
-            Resume highlighting key achievements and results
+            {texts.resume.description}
           </p>
           <div className="flex space-x-4">
             <a
@@ -39,7 +40,7 @@ const ResumeSection = () => {
                   d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
                 />
               </svg>
-              View
+              {texts.resume.viewButton}
             </a>
             <a
               href={resumePath}
@@ -59,7 +60,7 @@ const ResumeSection = () => {
                   d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
                 />
               </svg>
-              Download
+              {texts.resume.downloadButton}
             </a>
           </div>
         </div>

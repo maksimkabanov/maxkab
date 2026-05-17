@@ -1,11 +1,10 @@
 import Link from "next/link";
-import { basics } from "./data/resume";
+import { basics, texts } from "./data/resume";
 import ResumeSection from "./components/ResumeSection";
 
 export const metadata = {
-  title: "Maksim Kabanov | Senior Frontend Engineer",
-  description:
-    "Portfolio website of Maksim Kabanov, Senior Frontend Engineer with over 15 years of experience",
+  title: texts.home.pageTitle,
+  description: texts.home.pageDescription,
 };
 
 export const dynamic = "force-dynamic";
@@ -35,7 +34,7 @@ export default async function Home() {
         <div className="container">
           <div className="max-w-3xl mx-auto">
             <h2 className="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-white">
-              About Me
+              {texts.home.sectionTitle}
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
               {basics?.summary?.split(".").slice(0, 2).join(".") + "."}
@@ -51,7 +50,7 @@ export default async function Home() {
             href="/about"
             className="inline-block font-bold text-gray-900 dark:text-white underline hover:text-gray-700 dark:hover:text-gray-300 transition duration-300"
           >
-            View Full Resume
+            {texts.home.viewResumeLink}
           </Link>
         </div>
       </section>
@@ -64,26 +63,25 @@ export default async function Home() {
             <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md flex flex-col justify-between">
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Explore my work places and experiences
+                  {texts.home.experienceCardText}
                 </p>
                 <Link
                   href="/experience"
                   className="inline-block text-gray-900 dark:text-white underline hover:text-gray-700 dark:hover:text-gray-300 transition duration-300"
                 >
-                  My Experience
+                  {texts.home.experienceLink}
                 </Link>
               </div>
 
               <div className="bg-white dark:bg-gray-800 rounded-lg p-6 shadow-md flex flex-col justify-between">
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  Explore my portfolio of projects showcasing my technical
-                  expertise and problem-solving abilities.
+                  {texts.home.projectsCardText}
                 </p>
                 <Link
                   href="/projects"
                   className="inline-block text-gray-900 dark:text-white underline hover:text-gray-700 dark:hover:text-gray-300 transition duration-300"
                 >
-                  View Notable Projects
+                  {texts.home.projectsLink}
                 </Link>
               </div>
             </div>
