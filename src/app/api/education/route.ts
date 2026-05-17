@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
-import info from "@/info/info";
 import { Education, WithId } from "../types";
+import { RESUME_FROM_SERVER } from "@/app/data/resume";
 
 export async function GET() {
   try {
-    const education: WithId<Education>[] = info.education?.map((edu, index) => ({
+    const education: WithId<Education>[] = RESUME_FROM_SERVER.education?.map((edu, index) => ({
       ...edu,
       id: (index + 1).toString(),
     }));

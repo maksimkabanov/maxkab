@@ -1,5 +1,5 @@
+import { RESUME_FROM_SERVER } from "@/app/data/resume";
 import { NextResponse } from "next/server";
-import info from "@/info/info";
 
 interface ContactResponse {
   email: string;
@@ -11,14 +11,12 @@ interface ContactResponse {
 
 export async function GET() {
   try {
-    const { basics, languages } = info;
-
     const response: ContactResponse = {
-      email: basics.email,
-      phone: basics.phone,
-      location: `${basics.location.city}, ${basics.location.region}, ${basics.location.countryCode}`,
-      languages: languages?.map((lang) => `${lang.language} (${lang.fluency})`) ?? [],
-      linkedin: basics.url,
+      email: RESUME_FROM_SERVER.basics?.email,
+      phone: RESUME_FROM_SERVER.basics?.phone,
+      location: `${RESUME_FROM_SERVER.basics?.location.city}, ${RESUME_FROM_SERVER.basics?.location.region}, ${RESUME_FROM_SERVER.basics?.location.countryCode}`,
+      languages: RESUME_FROM_SERVER.languages?.map((lang) => `${lang.language} (${lang.fluency})`) ?? [],
+      linkedin: RESUME_FROM_SERVER.basics?.url,
     };
 
     return NextResponse.json(response);

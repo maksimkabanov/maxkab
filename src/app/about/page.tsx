@@ -1,4 +1,6 @@
-import { basics, education, skills, texts } from "../data/resume";
+import { RESUME_FROM_SERVER, texts } from "../data/resume";
+
+export const { basics, work, education, skills, projects, languages } = RESUME_FROM_SERVER
 
 // Group skills by categories
 const groupedSkills = {
@@ -189,7 +191,7 @@ export default async function About() {
               </div>
               <div>
                 <h3 className="text-lg font-medium mb-4 text-gray-900 dark:text-white">
-                  {texts.about.toolsSoftSkills}
+                  Tools & Soft Skills
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {groupedSkills.tools.map((skill, index) => (

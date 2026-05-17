@@ -1,4 +1,4 @@
-import { basics, languages, texts } from "../data/resume";
+import { RESUME_FROM_SERVER, texts } from "../data/resume";
 
 export const metadata = {
   title: texts.contact.pageTitle,
@@ -28,10 +28,10 @@ export default async function Contact() {
                     {texts.common.email}
                   </h3>
                   <a
-                    href={`mailto:${basics?.email}`}
+                    href={`mailto:${RESUME_FROM_SERVER.basics?.email}`}
                     className="text-blue-600 dark:text-blue-400 hover:underline"
                   >
-                    {basics?.email}
+                    {RESUME_FROM_SERVER.basics?.email}
                   </a>
                 </div>
                 <div>
@@ -39,8 +39,8 @@ export default async function Contact() {
                     {texts.common.location}
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300">
-                    {basics?.location?.address}, {basics?.location?.postalCode}{" "}
-                    {basics?.location?.city}, {basics?.location?.region}
+                    {RESUME_FROM_SERVER.basics?.location?.address}, {RESUME_FROM_SERVER.basics?.location?.postalCode}{" "}
+                    {RESUME_FROM_SERVER.basics?.location?.city}, {RESUME_FROM_SERVER.basics?.location?.region}
                   </p>
                 </div>
                 <div>
@@ -48,7 +48,7 @@ export default async function Contact() {
                     {texts.contact.languages}
                   </h3>
                   <div className="flex flex-wrap gap-2">
-                    {languages?.map((lang, index) => (
+                    {RESUME_FROM_SERVER.languages?.map((lang, index) => (
                       <span
                         key={index}
                         className="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded-full"
@@ -64,7 +64,7 @@ export default async function Contact() {
                   </h3>
                   <div className="flex space-x-4">
                     <a
-                      href={basics?.url}
+                      href={RESUME_FROM_SERVER.basics?.url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-blue-600 dark:text-blue-400 hover:underline"

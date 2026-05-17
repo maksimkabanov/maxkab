@@ -1,10 +1,12 @@
 import Link from "next/link";
-import { work, texts } from "../data/resume";
+import { RESUME_FROM_SERVER, texts } from "../data/resume";
 
 export const metadata = {
   title: texts.experience.pageTitle,
   description: texts.experience.pageDescription,
 };
+
+const work = RESUME_FROM_SERVER.work || [];
 
 export const dynamic = "force-dynamic";
 

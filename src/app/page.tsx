@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { basics, texts } from "./data/resume";
+import { RESUME_FROM_SERVER, texts } from "./data/resume";
 import ResumeSection from "./components/ResumeSection";
 
 export const metadata = {
@@ -17,13 +17,13 @@ export default async function Home() {
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">
-              {basics?.name}
+              {RESUME_FROM_SERVER.basics?.name}
             </h1>
             <p className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-1">
-              {basics?.label}
+              {RESUME_FROM_SERVER.basics?.label}
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              {basics?.location?.city}, {basics?.location?.region}
+              {RESUME_FROM_SERVER.basics?.location?.city}, {RESUME_FROM_SERVER.basics?.location?.region}
             </p>
           </div>
         </div>
@@ -37,10 +37,10 @@ export default async function Home() {
               {texts.home.sectionTitle}
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-              {basics?.summary?.split(".").slice(0, 2).join(".") + "."}
+              {RESUME_FROM_SERVER.basics?.summary?.split(".").slice(0, 2).join(".") + "."}
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-              {basics?.summary?.split(".").slice(2).join(".")}
+              {RESUME_FROM_SERVER.basics?.summary?.split(".").slice(2).join(".")}
             </p>
           </div>
         </div>

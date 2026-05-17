@@ -1,141 +1,10 @@
+import { RESUME_EMPTY } from "@/static/emptyResume";
 import {
   DeepPartial,
   WithIdRecursive,
-  Resume,
   ResumeFromServer,
   ResumeReady,
-  SkillLevel,
 } from "./types";
-
-export const emptyResume: Resume = {
-  basics: {
-    name: "",
-    label: "",
-    image: "",
-    email: "",
-    phone: "",
-    url: "",
-    summary: "",
-    location: {
-      address: "",
-      postalCode: "",
-      city: "",
-      countryCode: "",
-      region: "",
-    },
-    profiles: [
-      {
-        network: "",
-        username: "",
-        url: "",
-      },
-    ],
-  },
-  work: [
-    {
-      name: "",
-      position: "",
-      url: "",
-      startDate: "",
-      endDate: "",
-      description: "",
-      accomplishments: "",
-      technologies: [""],
-      projects: [
-        {
-          name: "",
-          description: "",
-          accomplishments: "",
-          technologies: [""],
-        },
-      ],
-    },
-  ],
-  volunteer: [
-    {
-      organization: "",
-      position: "",
-      url: "",
-      startDate: "",
-      endDate: "",
-      summary: "",
-      highlights: [""],
-    },
-  ],
-  education: [
-    {
-      institution: "",
-      url: "",
-      area: "",
-      studyType: "",
-      startDate: "",
-      endDate: "",
-      score: "",
-      courses: [""],
-    },
-  ],
-  awards: [
-    {
-      title: "",
-      date: "",
-      awarder: "",
-      summary: "",
-    },
-  ],
-  certificates: [
-    {
-      name: "",
-      date: "",
-      issuer: "",
-      url: "",
-    },
-  ],
-  publications: [
-    {
-      name: "",
-      publisher: "",
-      url: "",
-      releaseDate: "",
-      summary: "",
-    },
-  ],
-  skills: [
-    {
-      name: "",
-      level: SkillLevel.None,
-      keywords: [""],
-    },
-  ],
-  languages: [
-    {
-      language: "",
-      fluency: "",
-    },
-  ],
-  interests: [
-    {
-      name: "",
-      keywords: [""],
-    },
-  ],
-  references: [
-    {
-      name: "",
-      reference: "",
-    },
-  ],
-  projects: [
-    {
-      name: "",
-      description: "",
-      url: "",
-      startDate: "",
-      endDate: "",
-      highlights: [""],
-      technologies: [""],
-    },
-  ],
-};
 
 type TemplateMap = Record<string, unknown>;
 
@@ -169,7 +38,7 @@ export const extractTemplates = (
   return acc;
 };
 
-export const emptyTemplates = extractTemplates(emptyResume);
+export const emptyTemplates = extractTemplates(RESUME_EMPTY);
 
 export function makeWithIds<T>(
   input: DeepPartial<T>,
@@ -201,7 +70,7 @@ export function makeWithIds<T>(
 }
 
 export const resumeObject = (resume: ResumeFromServer = {}): ResumeReady => {
-  return makeWithIds(resume, emptyResume);
+  return makeWithIds(resume, RESUME_EMPTY);
 };
 
 export const stripIds = <T>(value: T): T => {

@@ -1,7 +1,6 @@
-import React from "react";
 import Image from "next/image";
 import { Project, WithId } from "../api/types";
-import { projects, texts } from "../data/resume";
+import { RESUME_FROM_SERVER, texts } from "../data/resume";
 
 // Extend Project type to include additional fields
 interface ExtendedProject extends Project {
@@ -15,11 +14,11 @@ interface ProjectWithImage extends Project {
 
 // Function to get projects directly from data file
 function getProjects(): WithId<ExtendedProject>[] {
-  if (!projects || projects.length === 0) {
+  if (!RESUME_FROM_SERVER.projects || RESUME_FROM_SERVER.projects.length === 0) {
     return [];
   }
 
-  return projects.map((project, index) => {
+  return RESUME_FROM_SERVER.projects.map((project, index) => {
     // Ensure all required fields are present
     const projectWithRequiredFields: ExtendedProject = {
       name: project.name || `Project ${index + 1}`,

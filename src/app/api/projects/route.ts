@@ -1,16 +1,16 @@
 import { NextResponse } from "next/server";
-import { projects } from "@/app/data/resume";
+import { RESUME_FROM_SERVER } from "@/app/data/resume";
 import { Project, WithId } from "../types";
 
 export async function GET() {
   try {
     // Check that projects exist and are not empty
-    if (!projects || projects.length === 0) {
+    if (!RESUME_FROM_SERVER.projects || RESUME_FROM_SERVER.projects.length === 0) {
       return NextResponse.json([], { status: 200 });
     }
 
     // Transform projects into WithId<Project> format
-    const projectsWithIds: WithId<Project>[] = projects.map(
+    const projectsWithIds: WithId<Project>[] = RESUME_FROM_SERVER.projects.map(
       (project, index) => {
         // Ensure all required fields are present
         const projectWithRequiredFields: Project = {
