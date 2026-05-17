@@ -1,14 +1,16 @@
 FROM node:20-alpine
-
 WORKDIR /app
 
+# Copy the ready contents of the deploy folder
+COPY . .
+
+# Disable Next.js telemetry
 ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
 ENV PORT=3000
-
-COPY ./ ./
-
-RUN chmod +x /app/start.sh
+ENV HOSTNAME="0.0.0.0"
 
 EXPOSE 3000
 
-CMD ["./start.sh"]
+# Run the built-in server directly without npm
+CMD ["node", "server.js"]

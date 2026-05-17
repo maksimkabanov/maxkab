@@ -1,50 +1,25 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/bin/bash
 
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
-OUT_DIR="$ROOT_DIR/out"
+# Exit immediately if a command exits with a non-zero status
+set -e
 
-cd "$ROOT_DIR"
+# 1. Build the project locally
+npm run build
 
-echo "==> Cleaning output folder"
-rm -rf "$OUT_DIR"
-mkdir -p "$OUT_DIR/.next"
+# 2. Prepare a clean deployment directory
+rm -rf deploy
+mkdir deploy
 
-echo "==> Building Next.js"
-NODE_ENV=production npm run build
+# 3. Copy standalone core files to root of deploy directory
+# This includes server.js and node_modules
+cp -r .next/standalone/. ./deploy/
 
-echo "==> Verifying standalone build exists"
-if [ ! -d ".next/standalone" ]; then
-  echo "ERROR: .next/standalone not found"
-  echo "Make sure next.config.js contains: output: 'standalone'"
-  exit 1
-fi
+# 4. Copy static assets into the correct locations
+# Next.js standalone requires these to serve images and static chunks
+cp -r public ./deploy/public
+cp -r .next/static ./deploy/.next/static
 
-echo "==> Copying standalone server"
-cp -R .next/standalone/. "$OUT_DIR/"
+# 5. Copy the production Dockerfile into the deploy directory
+cp Dockerfile ./deploy/Dockerfile
 
-echo "==> Copying static assets"
-if [ -d ".next/static" ]; then
-  cp -R .next/static "$OUT_DIR/.next/"
-fi
-
-echo "==> Copying public assets"
-if [ -d "public" ]; then
-  cp -R public "$OUT_DIR/"
-fi
-
-echo "==> Creating start script"
-cat > "$OUT_DIR/start.sh" <<'EOF'
-#!/usr/bin/env sh
-set -eu
-export NODE_ENV=production
-export PORT="${PORT:-3000}"
-exec node server.js
-EOF
-
-cp Dockerfile "$OUT_DIR/"
-
-chmod +x "$OUT_DIR/start.sh"
-
-echo "==> Done. Docker-ready build is in: $OUT_DIR"
-find "$OUT_DIR" -maxdepth 2 | sed 's|^\./||'
+echo "Success! The deployment package is ready in the './deploy' directory."
