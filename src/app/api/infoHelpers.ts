@@ -4,6 +4,7 @@ import {
   Resume,
   ResumeFromServer,
   ResumeReady,
+  SkillLevel,
 } from "./types";
 
 export const emptyResume: Resume = {
@@ -101,7 +102,7 @@ export const emptyResume: Resume = {
   skills: [
     {
       name: "",
-      level: 0,
+      level: SkillLevel.None,
       keywords: [""],
     },
   ],
